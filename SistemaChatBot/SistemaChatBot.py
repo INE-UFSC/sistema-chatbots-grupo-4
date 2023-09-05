@@ -3,12 +3,17 @@ from Bots.Bot import Bot
 class SistemaChatBot:
     def __init__(self,nomeEmpresa,lista_bots):
         self.__empresa=nomeEmpresa
+        
         ##verificar se a lista de bots contém apenas bots
-        self.__lista_bots=lista_bots
-        self.__bot = None
+        self.__lista_bots:[Bot] = lista_bots
+        if (any([x for x in self.__lista_bots if str(type(x)).lower()=="bot" ])):
+            print("Lista de bots com objetos nao bots")
+            exit()
+            
+        self.__bot:Bot = None
     
     def boas_vindas(self):
-        pass
+        print("Ola, bem vindo ao sistema fit bot!")
         ##mostra mensagem de boas vindas do sistema
 
     def mostra_menu(self):
@@ -19,7 +24,10 @@ class SistemaChatBot:
         ##mostra o menu de escolha de bots
     
     def escolhe_bot(self):
-        pass
+        while not (0 <= (bot_index := int(input())) < len(self.__lista_bots)):
+            print("Bot invalido!!")
+        
+        self.__bot = self.__lista_bots[bot_index]
         ##faz a entrada de dados do usuário e atribui o objeto ao atributo __bot 
 
     def mostra_comandos_bot(self):
@@ -31,10 +39,20 @@ class SistemaChatBot:
         ##faz a entrada de dados do usuário e executa o comando no bot ativo
 
     def inicio(self):
-        pass
         ##mostra mensagem de boas-vindas do sistema
+        self.boas_vindas()
+        
         ##mostra o menu ao usuário
-        ##escolha do bot      
+        self.mostra_menu()
+        
+        ##escolha do bot  
+        self.escolhe_bot()    
+        
         ##mostra mensagens de boas-vindas do bot escolhido
+        self.__bot.boas_vindas()
+        
         ##entra no loop de mostrar comandos do bot e escolher comando do bot até o usuário definir a saída
+        while (cmd := int(input())) > 0: self.__bot.executa_comando(cmd)
+                
         ##ao sair mostrar a mensagem de despedida do bot
+        self.__bot.despedida()
