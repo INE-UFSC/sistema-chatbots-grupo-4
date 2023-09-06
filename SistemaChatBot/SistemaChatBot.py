@@ -17,7 +17,10 @@ class SistemaChatBot:
         ##mostra mensagem de boas vindas do sistema
 
     def mostra_menu(self):
-        pass
+        print('Os bots disponíveis são:')
+        for bot in self.__lista_bots:
+            print(bot)
+        print('1 --> BotFit: \"Meu nome Rodrigo Goes, estou aqui ajudar no seu treino\" ')
         ##mostra o menu de escolha de bots
     
     def escolhe_bot(self):
@@ -28,7 +31,7 @@ class SistemaChatBot:
         ##faz a entrada de dados do usuário e atribui o objeto ao atributo __bot 
 
     def mostra_comandos_bot(self):
-        pass
+        self.__bot.mostra_comandos()
         ##mostra os comandos disponíveis no bot escolhido
 
     def le_envia_comando(self):
