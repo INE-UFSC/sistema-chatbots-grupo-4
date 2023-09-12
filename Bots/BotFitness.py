@@ -14,8 +14,7 @@ class BotFitness(Bot):
         return "Eu sou o Rodrigo Goes, natural é a fonte da juventude!"
     
     def executa_comando(self,cmd):
-        return ("Você disse: %s" % self.comandos[cmd][0])
-        return ("Rodrigo Goes: %s" % self.comandos[cmd][1])
+        return ("Você disse: %s" % self.comandos[cmd][0]) + ("\nNRodrigo Goes: %s" % self.comandos[cmd][1])
 
     def boas_vindas(self):
         return ("Qual mensagem vem aqui nas boas vindas ?")
