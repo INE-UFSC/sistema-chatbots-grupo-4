@@ -35,8 +35,8 @@ class SistemaChatBot:
         ##mostra os comandos disponíveis no bot escolhido
 
     def le_envia_comando(self):
-        pass
         ##faz a entrada de dados do usuário e executa o comando no bot ativo
+        while (cmd := int(input())) > 0: self.__bot.executa_comando(cmd)
 
     def inicio(self):
         ##mostra mensagem de boas-vindas do sistema
@@ -52,7 +52,7 @@ class SistemaChatBot:
         self.__bot.boas_vindas()
         
         ##entra no loop de mostrar comandos do bot e escolher comando do bot até o usuário definir a saída
-        while (cmd := int(input())) > 0: self.__bot.executa_comando(cmd)
-                
+        self.le_envia_comando()
+        
         ##ao sair mostrar a mensagem de despedida do bot
         self.__bot.despedida()
