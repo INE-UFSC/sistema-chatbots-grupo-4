@@ -3,19 +3,18 @@ from Bots.Bot import Bot
 class BotAmigavel(Bot):
     def __init__(self,  nome):
         self.__nome = nome
-        self.__comandos = {
-            1: {
-                'comando': 'Bom dia',
-                'resposta': 'Bom dia, como você está? '
-            },
-            2: {
-                'comando': 'Conte me uma piada',
-                'resposta': 'Por que o esqueleto não briga com ninguém? \nPorque ele não tem saco!'
-            },
-            3: {
-                'comando': 'Quero um conselho',
-                'resposta': 'Pegue e se cuide! Ande pela sombra sempre.'
-            }
+        self.comandos = {
+            1: (
+                'Bom dia',
+                'Bom dia, como você está? '),
+            2: (
+                'Conte me uma piada',
+             'Por que o esqueleto não briga com ninguém? \nPorque ele não tem saco!'
+            ),
+            3: (
+                'Quero um conselho',
+                'Pegue e se cuide! Ande pela sombra sempre.'
+            )
         }
 
     @property
@@ -27,18 +26,18 @@ class BotAmigavel(Bot):
         self.__nome = nome
 
     def apresentacao(self):
-        print(f'-> Olá, sou o {self.__nome}! Fico feliz em conhecê-lo!')
+        return(f'-> Olá, sou o {self.__nome}! Fico feliz em conhecê-lo!')
  
-    def mostra_comandos(self):
-        for i in self.__comandos:
-            comando = self.__comandos[i]['comando']
-            print(f'{i} - {comando}')
+    # def mostra_comandos(self):
+    #     for i in self.__comandos:
+    #         comando = self.__comandos[i]['comando']
+    #         return(f'{i} - {comando}')
             
     def executa_comando(self, cmd):
-        print(self.__comandos[cmd]['resposta'])
+        return(self.comandos[cmd][1])
 
     def boas_vindas(self):
-        print(f'-> {self.__nome} diz: Obrigado por ter me escolhido. Espero que sejamos bons amigos.')
+        return(f'-> {self.__nome} diz: Obrigado por ter me escolhido. Espero que sejamos bons amigos.')
 
     def despedida(self):
-        print('Pena que já acabou...')
+        return('Pena que já acabou...')
