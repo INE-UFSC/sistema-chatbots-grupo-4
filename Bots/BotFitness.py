@@ -4,10 +4,10 @@ class BotFitness(Bot):
     def __init__(self,nome):
         self.__nome = nome
         self.comandos = {
-            '0': ('Quero uma opinião sobre o meu treino', '\n=================\nApós uma avaliação minuciosa, percebi que você é um FRANGO !\n=================\n'),
-            '1': ('Treino para braço', f"\n=================\n- Comece alongando os braços\n- 3 séries de 2 minutos tentando cortar o bife do RU\n- 2 séries de 2 minutos tentando cortar a bisteca do RU\n=================\n"),
-            '2': ('Quero uma opinião sobre o meu shape', "\n=================\nLook at him. Nem parece que treina... Braços finos, corpo compacto e pouco aesthetic\n=================\n"),
-            '3': ('Adeus', "\n=================\nTudo de melhor pra você ! OUT\n=================\n")
+            1: ('Quero uma opinião sobre o meu treino', '\n=================\nApós uma avaliação minuciosa, percebi que você é um FRANGO !\n=================\n'),
+            2: ('Treino para braço', f"\n=================\n- Comece alongando os braços\n- 3 séries de 2 minutos tentando cortar o bife do RU\n- 2 séries de 2 minutos tentando cortar a bisteca do RU\n=================\n"),
+            3: ('Quero uma opinião sobre o meu shape', "\n=================\nLook at him. Nem parece que treina... Braços finos, corpo compacto e pouco aesthetic\n=================\n"),
+            4: ('Adeus', "\n=================\nTudo de melhor pra você ! OUT\n=================\n")
         }
 
     def apresentacao(self):
