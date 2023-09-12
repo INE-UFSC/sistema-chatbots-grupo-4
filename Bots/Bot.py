@@ -28,8 +28,9 @@ class Bot(ABC):
         self.__comandos = comandos
 
     def mostra_comandos(self):
-        for c in self.comandos.keys():
-            print("%s - %s" % (c, self.comandos[c][0]))
+        return "\n".join([f"{x} - {self.comandos[x][0]}" for x in self.comandos.keys()])
+        #for c in self.comandos.keys():
+        #    print("%s - %s" % (c, self.comandos[c][0]))
     
     @abstractmethod
     def executa_comando(self,cmd):
