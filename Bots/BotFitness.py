@@ -17,7 +17,7 @@ class BotFitness(Bot):
         return ("Você disse: %s" % self.comandos[cmd][0]) + ("\nNRodrigo Goes: %s" % self.comandos[cmd][1])
 
     def boas_vindas(self):
-        return ("Qual mensagem vem aqui nas boas vindas ?")
+        return ("Obrigado por me escolher!")
 
     def despedida(self):
         return ("Volte sempre meu querido Fake Natty !")
