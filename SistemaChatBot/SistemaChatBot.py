@@ -19,8 +19,8 @@ class SistemaChatBot:
     def mostra_menu(self):
         print('Os bots disponíveis são:')
         for bot in self.__lista_bots:
-            print(bot)
-        print('1 --> BotFit: \"Meu nome Rodrigo Goes, estou aqui ajudar no seu treino\" ')
+            print(bot.apresentacao())
+        
         ##mostra o menu de escolha de bots
     
     def escolhe_bot(self):
