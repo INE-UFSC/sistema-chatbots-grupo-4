@@ -7,7 +7,7 @@ class Bot(ABC):
 
     def __init__(self,nome):
         self.__nome = nome
-        self.__comandos = {}
+        self.__comandos = []
 
 
     @property
@@ -28,9 +28,11 @@ class Bot(ABC):
         self.__comandos = comandos
 
     def mostra_comandos(self):
-        return "\n".join([f"{x} - {self.comandos[x][0]}" for x in self.comandos.keys()])
-        #for c in self.comandos.keys():
-        #    print("%s - %s" % (c, self.comandos[c][0]))
+        resultado = []
+        for i, comando in enumerate(self.comandos):
+            resultado.append(f"{i} - {comando.mensagem}")
+        return '\n'.join(resultado)
+     
     
     @abstractmethod
     def executa_comando(self,cmd):
