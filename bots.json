@@ -1,0 +1,33 @@
+{
+  "bots": [
+    {
+      "id": 1,
+      "nome": "Bot fitness",
+      "comandos": [
+        { "pergunta": "Pergunta", "resposta": "resposta" },
+        { "pergunta": "Pergunta", "resposta": "resposta" },
+        { "pergunta": "Pergunta", "resposta": "resposta" }
+      ],
+      "saudacoes": {
+        "boas_vindas": "bom vindo",
+        "apresentacao": "olá",
+        "despedida": "arrivederci"
+      }
+    },
+    {
+      "id": 2,
+      "nome": "Bot Amigável",
+      "comandos": [
+        { "pergunta": "Bom dia", "resposta": "\n=================\nBom dia, como você está? !\n=================\n" },
+        { "pergunta": "Conte me uma piada", "resposta": "\n=================\n- Por que o esqueleto não briga com ninguém? \nPorque ele não tem saco!\n=================\n" },
+        { "pergunta": "Quero um conselho", "resposta": "\n=================\nPegue e se cuide! Ande pela sombra sempre.\n=================\n" },
+        { "pergunta": "Adeus", "resposta": "\n=================\nTudo de melhor pra você ! OUT\n=================\n" }
+      ],
+      "saudacoes": {
+        "boas_vindas": "Obrigado por ter me escolhido. Espero que sejamos bons amigos.",
+        "apresentacao": "Olá eu sou o Bot Amigável! Fico feliz em conhecê-lo!",
+        "despedida": "Pena que já acabou..."
+      }
+    }
+  ]
+}

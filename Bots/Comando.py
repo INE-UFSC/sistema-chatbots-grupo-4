@@ -1,16 +1,7 @@
-class Comandos:
-    def __init__(self, comando: int, mensagem, respostas):
-        self.__comando = comando
+class Comando:
+    def __init__(self, mensagem, respostas):
         self.__mensagem = mensagem
         self.__respostas = respostas
-
-    @property
-    def comando(self):
-        return self.__comando
-    
-    @comando.setter
-    def comando(self, comando):
-        self.__comando = comando
 
     @property 
     def mensagem(self):

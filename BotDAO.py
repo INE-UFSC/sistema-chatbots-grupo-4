@@ -1,10 +1,6 @@
-#encoding: utf-8
-from SistemaChatBot import SistemaChatBot as scb
-# from Bots.BotFitness import BotFitness
-# from Bots.BotAmigavel import BotAmigavel
-
 # from Persistencia.DAO import DAO
 from Bots.Bot import Bot
+from Persistencia.BotEncoder import BotEncoder
 import json
 
 lista_bots = []
@@ -20,15 +16,13 @@ with open('bots.json', 'r') as file_bots:
             saudacoes['apresentacao'], 
             saudacoes['boas_vindas'], 
             saudacoes['despedida']
-            )
+        )
 
         lista_bots.append(teste)
 
-# for bot in lista_bots:
-#     print(bot.comandos)
+for bot in lista_bots:
+    # json.dump(bot)
 
-###construa a lista de bots disponíveis aqui
-# lista_bots = [BotFitness("Rodrigo Goes"), BotAmigavel("Bot sobrinho do bezos")]
-
-sys = scb.SistemaChatBot("Fitness Bots",lista_bots)
-sys.inicio()
+    bot = json.dumps(bot, cls=BotEncoder)
+    print(bot)
+    break

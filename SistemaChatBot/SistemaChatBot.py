@@ -43,7 +43,7 @@ class SistemaChatBot:
 
     def inicio(self):
         ##mostra mensagem de boas-vindas do sistema
-        print(self.boas_vindas())
+        self.boas_vindas()
         
         ##mostra o menu ao usuário
         self.mostra_menu()
