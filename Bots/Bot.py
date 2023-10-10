@@ -3,6 +3,7 @@
 # from abc import ABC, abstractmethod
 from Bots.Comando import Comando
 import random as r
+from Bots.comandoinexistenteException import*
 
 class Bot():
 
