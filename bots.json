@@ -1,17 +1,19 @@
+
 {
   "bots": [
     {
       "id": 1,
       "nome": "Bot fitness",
       "comandos": [
-        { "pergunta": "Pergunta", "resposta": "resposta" },
-        { "pergunta": "Pergunta", "resposta": "resposta" },
-        { "pergunta": "Pergunta", "resposta": "resposta" }
+        { "pergunta": "Quero uma opinião sobre o meu treino", "resposta": "\n=================\nApós uma avaliação minuciosa, percebi que você é um FRANGO !\n=================\n" },
+        { "pergunta": "Treino para braço", "resposta": "\n=================\n- Comece alongando os braços\n- 3 séries de 2 minutos tentando cortar o bife do RU\n- 2 séries de 2 minutos tentando cortar a bisteca do RU\n=================\n" },
+        { "pergunta": "Quero uma opinião sobre o meu shape", "resposta": "\n=================\nLook at him. Nem parece que treina... Braços finos, corpo compacto e pouco aesthetic\n=================\n" }
+        { "pergunta": "Adeus", "resposta": "\n=================\nTudo de melhor pra você ! OUT\n=================\n"}
       ],
       "saudacoes": {
-        "boas_vindas": "bom vindo",
-        "apresentacao": "olá",
-        "despedida": "arrivederci"
+        "boas_vindas": "Obrigado por me escolher!",
+        "apresentacao": "Eu sou o Rodrigo Goes, natural é a fonte da juventude!",
+        "despedida": "Volte sempre meu querido Fake Natty !"
       }
     },
     {
