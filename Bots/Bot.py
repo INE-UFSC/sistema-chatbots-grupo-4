@@ -1,11 +1,10 @@
-##implemente as seguintes classes
 
-# from abc import ABC, abstractmethod
 from Bots.Comando import Comando
 import random as r
 from Bots.comandoinexistenteException import*
+from Persistencia.BotDao import*
 
-class Bot():
+class Bot(BotDAO):
 
     def __init__(self, nome, comandos, apresentacao, boas_vindas, despedida):
         self.__nome = nome

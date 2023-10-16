@@ -1,6 +1,6 @@
-from abc import ABC
+from abc import ABC, abstractmethod
 import pickle
-
+from Bots.Bot import*
 class DAO(ABC):
     def __init__(self, datasource=''):
         self.datasource = datasource
@@ -18,24 +18,19 @@ class DAO(ABC):
     def __load(self):
         self.cache = pickle.load(open(self.datasource, 'rb'))
 
+    @abstractmethod
     def add(self, key, obj):
-        self.cache[key] = obj  # Adiciona um objeto ao cache
-        self.__dump()  # Salva o cache atualizado no arquivo
-
-    def get(self, key):
-        try:
-            return self.cache[key]  # Obtém um objeto pela seu chave
-        except KeyError:
-            print('Chave não encontrada', f = sys.stderr)  # Se a chave não existe no cache, retorna None
-            raise KeyError #KeyError é "relançada" para que possa ser tratada em um nível superior do código.
+        pass
+    
+    @abstractmethod
+    def get(self, key): #recuperar bot
+        pass
    
+    @abstractmethod
     def remove(self, key):
-        try:
-            self.cache.pop(key)  # Remove um objeto pelo sua chave
-            self.__dump()  # Salva o cache atualizado no arquivo
-            return True
-        except KeyError:
-            raise  # Se a chave não existe no cache, levanta uma exceção
+        pass
+
 
     def get_all(self):
         return list(self.cache.values())  # Retorna todos os objetos no cache como uma lista
+
