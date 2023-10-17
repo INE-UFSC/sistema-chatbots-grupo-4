@@ -6,7 +6,8 @@ from Persistencia.BotDao import*
 
 class Bot(BotDAO):
 
-    def __init__(self, nome, comandos, apresentacao, boas_vindas, despedida):
+    def __init__(self, id, nome, comandos, apresentacao, boas_vindas, despedida):
+        self.__id = id
         self.__nome = nome
         self.__comandos = []
         self.__saudacoes = {
@@ -19,6 +20,10 @@ class Bot(BotDAO):
             self.__comandos.append(
                 Comando(cmd['pergunta'], cmd['resposta'])
                 )
+
+    @property
+    def id(self):
+        return self.__id
 
     @property
     def nome(self):

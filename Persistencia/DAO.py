@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
-import pickle
+import json
 from Bots.Bot import*
+
 class DAO(ABC):
     def __init__(self, datasource=''):
         self.datasource = datasource
@@ -13,10 +14,13 @@ class DAO(ABC):
             self.__dump()  # Se o arquivo não existe, cria um arquivo vazio
 
     def __dump(self):
-        pickle.dump(self.cache, open(self.datasource, 'wb'))
+        json.dump(self.cache, open(self.datasource, 'wb'))
 
     def __load(self):
-        self.cache = pickle.load(open(self.datasource, 'rb'))
+        self.cache = json.load(open(self.datasource, 'rb'))
+
+    def teste(self):
+        return True
 
     @abstractmethod
     def add(self, key, obj):
@@ -29,7 +33,6 @@ class DAO(ABC):
     @abstractmethod
     def remove(self, key):
         pass
-
 
     def get_all(self):
         return list(self.cache.values())  # Retorna todos os objetos no cache como uma lista

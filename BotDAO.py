@@ -11,6 +11,7 @@ with open('bots.json', 'r') as file_bots:
     for bot in bots_json['bots']:
         saudacoes = bot['saudacoes']
         teste = Bot(
+            bot['id'],
             bot['nome'], 
             bot['comandos'], 
             saudacoes['apresentacao'], 

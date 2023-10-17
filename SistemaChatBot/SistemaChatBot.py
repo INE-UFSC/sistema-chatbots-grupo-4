@@ -1,8 +1,11 @@
 from Bots.Bot import Bot
+from Persistencia.BotDao import BotDAO
+from Persistencia.DAO import DAO
 
 class SistemaChatBot:
     def __init__(self,nomeEmpresa,lista_bots):
         self.__empresa=nomeEmpresa
+        self.dao = BotDAO()
         
         ##verificar se a lista de bots contém apenas bots
         self.__lista_bots:[Bot] = lista_bots
