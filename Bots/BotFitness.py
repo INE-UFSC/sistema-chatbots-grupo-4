@@ -31,3 +31,4 @@ class BotFitness(Bot):
 
     def despedida(self):
         return "Volte sempre meu querido Fake Natty !"
+    
