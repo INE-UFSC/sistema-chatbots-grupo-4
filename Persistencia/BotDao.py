@@ -1,6 +1,6 @@
-from DAO import DAO
-from ArquivoInvalidoException import*
-from BotInexistenteException import*
+from Persistencia.DAO import DAO
+from Persistencia.ArquivoInvalidoException import*
+from Persistencia.BotInexistenteException import*
 from Persistencia.BotEncoder import BotEncoder
 import json
 

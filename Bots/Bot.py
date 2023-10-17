@@ -1,13 +1,9 @@
-
 from Bots.Comando import Comando
 import random as r
-from Bots.comandoinexistenteException import*
-from Persistencia.BotDao import*
+from Persistencia.ComandoInexistenteException import*
 
-class Bot(BotDAO):
-
-    def __init__(self, id, nome, comandos, apresentacao, boas_vindas, despedida):
-        self.__id = id
+class Bot():
+    def __init__(self, nome, comandos, apresentacao, boas_vindas, despedida):
         self.__nome = nome
         self.__comandos = []
         self.__saudacoes = {
