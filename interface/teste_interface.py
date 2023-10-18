@@ -7,6 +7,9 @@ def janela_principal():
         [sg.Text("Ola, bem vindo ao sistema fit bot!")],
         [sg.Text('selecione um bot')],
         [sg.InputCombo(values=lista, size=(20, 1), key='lista_suspensa')],
+        [sg.Text('escolha o bot')],
+        [sg.Multiline(default_text='bot 1')],
+        [sg.Combo(values=['Bot 1', 'Bot 2'])],
         [sg.Text('', size=(60, 1))],
         [sg.Button('Confirmar')],
         [sg.Text('', size=(60, 1))]
