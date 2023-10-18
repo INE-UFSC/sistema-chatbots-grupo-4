@@ -1,9 +1,10 @@
 from Bots.Bot import Bot
 from Persistencia.BotDao import BotDAO
 from Persistencia.DAO import DAO
+from interface.teste_interface import janela_principal
 
 class SistemaChatBot:
-    def __init__(self,nomeEmpresa,lista_bots):
+    def __init__(self,nomeEmpresa):
         self.__empresa=nomeEmpresa
         self.dao = BotDAO()
         
@@ -47,19 +48,20 @@ class SistemaChatBot:
     def inicio(self):
 
         ##mostra mensagem de boas-vindas do sistema
-        self.boas_vindas()
+        janela_principal()
+        # self.boas_vindas()
         
-        ##mostra o menu ao usuário
-        self.mostra_menu()
+        # ##mostra o menu ao usuário
+        # self.mostra_menu()
         
-        ##escolha do bot  
-        self.escolhe_bot()
+        # ##escolha do bot  
+        # self.escolhe_bot()
         
-        ##mostra mensagens de boas-vindas do bot escolhido
-        print(self.__bot.boas_vindas())
+        # ##mostra mensagens de boas-vindas do bot escolhido
+        # print(self.__bot.boas_vindas())
         
-        ##entra no loop de mostrar comandos do bot e escolher comando do bot até o usuário definir a saída
-        self.le_envia_comando()
+        # ##entra no loop de mostrar comandos do bot e escolher comando do bot até o usuário definir a saída
+        # self.le_envia_comando()
         
-        ##ao sair mostrar a mensagem de despedida do bot
-        print(self.__bot.despedida())
+        # ##ao sair mostrar a mensagem de despedida do bot
+        # print(self.__bot.despedida())
