@@ -45,6 +45,7 @@ class SistemaChatBot:
             self.mostra_comandos_bot()
 
     def inicio(self):
+
         ##mostra mensagem de boas-vindas do sistema
         self.boas_vindas()
         

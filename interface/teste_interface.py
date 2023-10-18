@@ -1,13 +1,14 @@
 import PySimpleGUI as sg
 
+lista = ['valor 1', 'valor 2', 'valor 3', 'valor 4'] # Sua lista de valores
 
 def janela_principal():
     layout = [
         [sg.Text("Ola, bem vindo ao sistema fit bot!")],
-        [sg.Text('escolha o bot')],
-        [sg.Multiline(default_text='bot 1')],
+        [sg.Text('selecione um bot')],
+        [sg.InputCombo(values=lista, size=(20, 1), key='lista_suspensa')],
         [sg.Text('', size=(60, 1))],
-        [sg.Text('Digite o bot escolhido: '), sg.InputText('', key='bot'), sg.Button('Confirmar')],
+        [sg.Button('Confirmar')],
         [sg.Text('', size=(60, 1))]
     ]
 
@@ -19,7 +20,7 @@ def janela_principal():
         if event == sg.WINDOW_CLOSED:
             break
 
-        if event == 'Bot 2' or 'Bot 1':
+        if event == 'Confirmar':
             window.close()
             janela_comandos()
 
