@@ -2,25 +2,34 @@ from Persistencia.DAO import DAO
 from Persistencia.ArquivoInvalidoException import*
 from Persistencia.BotInexistenteException import*
 from Persistencia.BotEncoder import BotEncoder
+from Bots.Bot import Bot
 import json
 
 class BotDAO(DAO):
     def __init__(self, datasource="bots.json"):
-        super().__init__(datasource)
+        self.datasource = datasource
+        self.cache = {}  # Um dicionário que atua como um cache de objetos
+
+        try:
+            self.__load()  # Tentativa de carregar os dados do arquivo
+
+        except FileNotFoundError:
+            self.__dump() 
 
     def __load(self):
-        bots_json = json.load(open(self.datasource, 'rb'))
-        for b in bots_json['bots']:
-            saudacoes = b['saudacoes']
-            bot = Bot(
-                b['nome'], 
-                b['comandos'], 
+        bots_json = json.load(open(self.datasource, 'rb'))['bots']
+        for bot in bots_json:
+            saudacoes = bot['saudacoes']
+            bot_obj = Bot(
+                # bot['id'],
+                bot['nome'], 
+                bot['comandos'], 
                 saudacoes['apresentacao'], 
                 saudacoes['boas_vindas'], 
-                saudacoes['despedida']
+                saudacoes['despedida']  
             )
-
-        self.cache[bot.nome] = bot
+            self.cache[bot_obj.nome] = bot_obj
+        print(self.cache)
 
     def __dump(self):
         json.dump(self.cache, open(self.datasource, 'wb'), cls=BotEncoder)

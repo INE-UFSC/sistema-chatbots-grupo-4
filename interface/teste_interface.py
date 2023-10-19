@@ -2,11 +2,12 @@ import PySimpleGUI as sg
 
 lista = ['valor 1', 'valor 2', 'valor 3', 'valor 4'] # Sua lista de valores
 
-def janela_principal():
+def janela_principal(bots):
+    nome_bots = [bot.nome for bot in bots]
     layout = [
         [sg.Text("Ola, bem vindo ao sistema fit bot!")],
         [sg.Text('selecione um bot')],
-        [sg.InputCombo(values=lista, size=(20, 1), key='lista_suspensa')],
+        [sg.InputCombo(values=nome_bots, size=(20, 1), key='lista_suspensa')],
         [sg.Text('', size=(60, 1))],
         [sg.Button('Confirmar')],
 
@@ -45,4 +46,4 @@ def janela_comandos():
             window.Element('resposta').update('voce fez a pergunta 1')
 
 
-janela_principal()
+# janela_principal()

@@ -9,7 +9,8 @@ class SistemaChatBot:
         self.dao = BotDAO()
         
         ##verificar se a lista de bots contém apenas bots
-        self.__lista_bots:[Bot] = lista_bots
+        # print(self.dao.get_all())
+        self.__lista_bots:[Bot] = self.dao.get_all()
         if (any([x for x in self.__lista_bots if str(type(x)).lower()=="bot" ])):
             print("Lista de bots com objetos nao bots")
             exit()
@@ -48,7 +49,8 @@ class SistemaChatBot:
     def inicio(self):
 
         ##mostra mensagem de boas-vindas do sistema
-        janela_principal()
+        # print(self.__lista_bots[0][0])
+        janela_principal(self.__lista_bots)
         # self.boas_vindas()
         
         # ##mostra o menu ao usuário
