@@ -36,6 +36,10 @@ class Interface():
         layout = [
             [sg.Text("Editar nome")],
             [sg.Text(bot.nome)],
+            [sg.Text("Editar saudações")],
+            [[sg.Text("Boas vindas")], [sg.InputText(bot.boas_vindas(), size=(40, 1), key='-boas_vindas-')]],
+            [[sg.Text("Apresentação")], [sg.InputText(bot.apresentacao(), size=(40, 1), key='-apresentacao-')]],
+            [[sg.Text("Despedida")], [sg.InputText(bot.despedida(), size=(40, 1), key='-despedida-')]],
             [sg.Text("Editar pergunta")],
             [sg.Text('selecione uma pergunta')],
             [sg.InputCombo(values=[cmd.mensagem for cmd in bot.comandos], size=(60, 1), key='-pergunta_selecionada-')],
@@ -51,6 +55,12 @@ class Interface():
                 break
 
             if event == 'Salvar':
+                saudacoes = bot.saudacoes
+                saudacoes['boas_vindas'] = values['-boas_vindas-']
+                saudacoes['apresentacao'] = values['-apresentacao-']
+                saudacoes['despedida'] = values['-despedida-']
+                bot.saudacoes = saudacoes
+                
                 self.controller.salvar(bot)
                 window.close()
             if event == 'Editar pergunta':

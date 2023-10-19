@@ -14,7 +14,7 @@ class BotDAO(DAO):
             self.__load()  # Tentativa de carregar os dados do arquivo
 
         except FileNotFoundError:
-            self.__dump() 
+            json.dump({'bots': []}, open(self.datasource, 'w'))
 
     def __load(self):
         bots_json = json.load(open(self.datasource, 'r'))['bots']
@@ -28,7 +28,7 @@ class BotDAO(DAO):
                 saudacoes['despedida']  
             )
             self.cache[bot_obj.nome] = bot_obj
-        print(self.cache)
+        # print(self.cache)
 
     def __dump(self):
         encoder = BotEncoder()
