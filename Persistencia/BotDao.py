@@ -13,7 +13,7 @@ class BotDAO(DAO):
         try:
             self.__load()  # Tentativa de carregar os dados do arquivo
 
-        except FileNotFoundError:
+        except json.JSONDecodeError:
             json.dump({'bots': []}, open(self.datasource, 'w'))
 
     def __load(self):
