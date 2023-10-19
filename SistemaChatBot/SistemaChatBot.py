@@ -20,7 +20,11 @@ class SistemaChatBot:
         return self.__lista_bots
         
     def salvar(self, bot):
-        self.dao.add(bot)
+        self.dao.save(bot)
+        
+    def criar(self, bot_dict):
+        bot = self.dao.add(bot_dict)
+        self.__lista_bots[bot.nome] = bot
 
     def inicio(self):
         Interface(self)

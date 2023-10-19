@@ -40,6 +40,20 @@ class BotDAO(DAO):
         json.dump(obj, open(self.datasource, 'w'))
 
     def add(self, obj): #adicionar novo bot
+        saudacoes = obj['saudacoes']
+        bot_obj = Bot(
+            obj['nome'], 
+            obj['comandos'], 
+            saudacoes['apresentacao'], 
+            saudacoes['boas_vindas'], 
+            saudacoes['despedida']  
+        )
+        
+        self.cache[bot_obj.nome] = bot_obj  # Adiciona um objeto ao cache
+        self.__dump()  # Salva o cache atualizado no arquivo
+        return bot_obj
+        
+    def save(self, obj):
         if isinstance(obj, Bot):
             self.cache[obj.nome] = obj  # Adiciona um objeto ao cache
             self.__dump()  # Salva o cache atualizado no arquivo
