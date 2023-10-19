@@ -1,8 +1,8 @@
 from Bots.Bot import Bot
 from json import JSONEncoder
 
-class BotEncoder(JSONEncoder):
-  def default(self, bot_raw: Bot):
+class BotEncoder():
+  def encode(self, bot_raw: Bot):
     bot_dict = {
       'nome': bot_raw.nome,
       'saudacoes': {

@@ -17,11 +17,10 @@ class BotDAO(DAO):
             self.__dump() 
 
     def __load(self):
-        bots_json = json.load(open(self.datasource, 'rb'))['bots']
+        bots_json = json.load(open(self.datasource, 'r'))['bots']
         for bot in bots_json:
             saudacoes = bot['saudacoes']
             bot_obj = Bot(
-                # bot['id'],
                 bot['nome'], 
                 bot['comandos'], 
                 saudacoes['apresentacao'], 
@@ -32,7 +31,13 @@ class BotDAO(DAO):
         print(self.cache)
 
     def __dump(self):
-        json.dump(self.cache, open(self.datasource, 'wb'), cls=BotEncoder)
+        encoder = BotEncoder()
+
+        obj = { 'bots': [] }
+        for bot in self.cache.values():
+            bot_dict = encoder.encode(bot)
+            obj['bots'].append(bot_dict)
+        json.dump(obj, open(self.datasource, 'w'))
 
     def add(self, obj): #adicionar novo bot
         if isinstance(obj, Bot):
@@ -44,8 +49,7 @@ class BotDAO(DAO):
     def get(self, key): #recuperar bot
         try:
             return self.cache[key]  # Obtém um objeto pela seu chave
-        except KeyError:
-            
+        except KeyError:        
             raise BotInexistenteException  #KeyError é "relançada" para que possa ser
         
     def remove(self, key):

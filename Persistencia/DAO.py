@@ -35,5 +35,5 @@ class DAO(ABC):
         pass
 
     def get_all(self):
-        return list(self.cache.values())  # Retorna todos os objetos no cache como uma lista
+        return self.cache  # Retorna todos os objetos no cache como uma lista
 
